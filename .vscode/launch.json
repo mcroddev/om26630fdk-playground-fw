@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug on OM26630FDK",
+            "cwd": "${workspaceRoot}",
+            "executable": "${command:cmake.launchTargetPath}",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "device": "LPC1769",
+            "configFiles": [
+		"${workspaceFolder}/fw-openocd.cfg"
+            ],
+            "svdFile": "${workspaceFolder}/LPC176x5x.svd",
+            "runToEntryPoint": "main"
+        }
+    ]
+}
