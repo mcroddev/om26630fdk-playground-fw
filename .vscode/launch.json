@@ -10,7 +10,7 @@
             "servertype": "openocd",
             "device": "LPC1769",
             "configFiles": [
-		"${workspaceFolder}/fw-openocd.cfg"
+                "${workspaceFolder}/fw-openocd.cfg"
             ],
             "svdFile": "${workspaceFolder}/LPC176x5x.svd",
             "runToEntryPoint": "main"
