@@ -1,0 +1,66 @@
+{
+	"version": 3,
+
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 22,
+		"patch": 1
+	},
+
+	"configurePresets": [
+		{
+			"name": "base",
+			"description": "Base configuration",
+			"hidden": true,
+			"generator": "Ninja",
+			"cacheVariables": {
+				"CMAKE_EXPORT_COMPILE_COMMANDS": {
+					"type": "BOOL",
+					"value": "ON"
+				}
+			}
+		},
+		{
+			"name": "cfg-dbg",
+			"description": "Configure in Debug mode",
+			"hidden": true,
+			"inherits": "base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": {
+					"type": "STRING",
+					"value": "Debug"
+				}
+			}
+		},
+		{
+			"name": "cfg-rel",
+			"description": "Configure in Release mode",
+			"hidden": true,
+			"inherits": "base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": {
+					"type": "STRING",
+					"value": "Release"
+				}
+			}
+		},
+		{
+			"name": "gcc-toolchain",
+			"description": "Use the arm-none-eabi-gcc toolchain",
+			"hidden": true,
+			"toolchainFile": "${sourceDir}/cmake/arm-none-eabi-gcc.cmake"
+		},
+		{
+			"name": "cfg-dbg-gcc",
+			"displayName": "Configure the playground firmware using arm-none-eabi-gcc for Debug mode",
+			"binaryDir": "${sourceDir}/build-dbg-gcc",
+			"inherits": ["cfg-dbg", "gcc-toolchain"]
+		},
+		{
+			"name": "cfg-rel-gcc",
+			"displayName": "Configure the playground firmware using arm-none-eabi-gcc for Release mode",
+			"binaryDir": "${sourceDir}/build-rel-gcc",
+			"inherits": ["cfg-rel", "gcc-toolchain"]
+		}
+	]
+}
