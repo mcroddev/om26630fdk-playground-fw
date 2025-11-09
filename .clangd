@@ -1,0 +1,5 @@
+Completion:
+  HeaderInsertion: Never
+
+CompileFlags:
+  Remove: --crt0=minimal
